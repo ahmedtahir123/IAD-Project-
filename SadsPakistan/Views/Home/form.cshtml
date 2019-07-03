@@ -1,0 +1,82 @@
+﻿@model SadsPakistan.Models.FormClass1
+
+<body>
+    <section >
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <ul class="list-group flex-row">
+                        <li class="list-group-item" style="border-top:white;border-left:white;height:50px;"><span style="color:#f15622;">Enter Donation Details</span></li>
+                        <li class="list-group-item active" style="background-color:rgb(255,255,255);color:rgb(85,62,62);border-color:rgb(234,223,223);border-bottom:white;height:50px;"><span style="color:rgb(177,147,147);">Schedule a Pickup</span></li>
+                        <li class="list-group-item" style="border-top:white;border-left:white;border-right:white;height:50px;"><span style="color:#f15622;">Mobile Verify</span></li>
+                        <li class="list-group-item" style="border-top:white;border-left:white;border-right:white;height:50px;"><span style="color:#f15622;">Confirmation</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col" >
+                    <section  class="td-form" style="background-color:#ffffff; margin-top:10%;">
+                        <div class="row td-form-wrapper" style="background-color:rgba(252,254,255,0.45);">
+                            <div class="col td-glass" style="background-color:#ffffff;">
+@*                                <form class="td-form-wrapper" style="background-color:rgba(255,255,255,0.45);">*@
+@using (@Html.BeginForm("form", "Home", FormMethod.Post))
+{
+
+                                    <div class="form-group" style="background-color:#ffffff;/*border-color:black;*//*border:2px solid;*//*border-radius:20px;*/">
+                                        <div class="col-md-12" style="background-color:#ffffff;">
+                                            <div class="d-flex" style="background-color:#ffffff;/*border-color:black;*/">
+                                                <input class="form-control d-flex" type="text" name="name" required="" placeholder="Name" autocomplete="off" style="width:309px;color:black;background-color:rgba(255,255,255,0.45);border-color:rgb(250, 155, 85);border-radius:50px;">
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <div class="d-flex">
+                                                <input class="form-control" type="email" name="email" required="" placeholder="E-mail" autocomplete="off" inputmode="email" style="width:309px;color:black;background-color:rgba(255,255,255,0.45);border-color:#f15622;/*border-radius:50px;*/">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <div class="d-flex"><input class="form-control" type="text" name="address" required="" placeholder="Address" autocomplete="off" inputmode="email" style="width:309px;color:black; background-color:rgba(255,255,255,0.45);border-color:#f15622;"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <div class="d-flex td-input-container">
+                                                <input class="form-control" type="text" name="city" placeholder="City" autocomplete="off" inputmode="email" style="width:150px;color:black; background-color:rgba(255,255,255,0.45);border-color:#f15622;margin:0 10px 0 0;">
+                                                <input class="form-control" type="text" name="pincode" placeholder="Pin Code" autocomplete="off" inputmode="email" style="width:150px;color:black; background-color:rgba(255,255,255,0.45);border-color:#f15622;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <div class="d-flex td-input-container">
+                                                <input class="form-control form-control-sm" name="suggestion" type="text" placeholder="Any Suggesstion or Details" style="width:309px;height:124px;color:black; background-color:white;background-color:rgba(255,255,255,0.45);border-color:#f15622;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @*<a class="btn btn-primary" role="button" href="Mobile.html" style="display:block;padding:12px 24px;background-color:#f15622;border-radius:12px;color:#fff;text-transform:uppercase;width:333px;">Next</a>*@
+                    @*                @Html.ActionLink("Next", "Mobile", "Home", new { @class = "btn btn-primary", role = "button", style = "display:block;padding:12px 24px;background-color:#f15622;border-radius:12px;color:#fff;text-transform:uppercase;width:333px;" })*@
+                                    <input type="submit" value="Next" class="btn btn-primary" role="button" href="Mobile.html" style="display:block;padding:12px 24px;background-color:#f15622;border-radius:12px;color:#fff;text-transform:uppercase;width:333px;" />
+}
+ @*                               </form>*@
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </section>
+     <script src="~/Content/assets/js/jquery.min.js"></script>
+    <script src="~/Content/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/Content/assets/js/UnderSpeed---Floating-Label.js"></script>
+    <script src="~/Content/assets/js/ebs-bootstrap-datepicker.js"></script>
+    <script src="~/Content/assets/js/Fixed-navbar-starting-with-transparency.js"></script>
+    <script src="~/Content/assets/js/PHP-Contact-Form-dark.js"></script>
+    <script src="~/Content/assets/js/PHP-Contact-Form-dark.js"></script>
+
+</body>

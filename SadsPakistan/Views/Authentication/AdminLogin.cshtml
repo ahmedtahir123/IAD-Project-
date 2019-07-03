@@ -1,0 +1,121 @@
+﻿@model SadsPakistan.Models.tbl_admin
+@{
+    ViewBag.Title = "Login";
+    Layout = null;
+}
+
+
+
+<style>
+    body {
+        background: #333;
+    }
+
+    #login {
+        background-color: forestgreen;
+        width: 80%;
+    }
+
+    .form_bg {
+        background-color: white;
+        color: #666;
+        padding: 20px;
+        border-radius: 10px;
+        position: absolute;
+        border: 1px solid #fff;
+        margin: auto;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 320px;
+        height: 320px;
+    }
+
+    .align-center {
+        text-align: center;
+    }
+</style>
+<head>
+    <link rel="stylesheet" href="~/Content/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="~/Content/assets/css/Fixed-navbar-starting-with-transparency.css">
+    <link rel="stylesheet" href="~/Content/assets/css/Fixed-navbar-starting-with-transparency.css">
+    <link rel="stylesheet" href="~/Content/assets/css/16-scrollbar-styles.css">
+    <link rel="stylesheet" href="~/Content/assets/css/16-scrollbar-styles.css">
+    <link rel="stylesheet" href="~/Content/assets/css/Dark-Footer.css">
+    <link rel="stylesheet" href="~/Content/assets/css/Dark-Footer.css">
+    <link rel="stylesheet" href="~/Content/assets/css/Dark-Footer.css">
+    <link rel="stylesheet" href="~/Content/assets/css/Dark-Footer.css">
+    <link rel="stylesheet" href="~/Content/assets/css/Dark-Footer.css">
+    <link rel="stylesheet" href="~/Content/assets/css/Dark-Footer.css">
+    <link rel="stylesheet" href="~/Content/assets/css/ebs-bootstrap-datepicker.css">
+    <link rel="stylesheet" href="~/Content/assets/css/ebs-bootstrap-datepicker.css">
+    <link rel="stylesheet" href="~/Content/assets/css/ebs-bootstrap-datepicker.css">
+    <link rel="stylesheet" href="~/Content/assets/css/ebs-bootstrap-datepicker.css">
+    <link rel="stylesheet" href="~/Content/assets/css/ebs-bootstrap-datepicker.css">
+    <link rel="stylesheet" href="~/Content/assets/css/ebs-contact-form.css">
+    <link rel="stylesheet" href="~/Content/assets/css/ebs-contact-form.css">
+    <link rel="stylesheet" href="~/Content/assets/css/Pretty-Footer.css">
+    <link rel="stylesheet" href="~/Content/assets/css/Full-Screen-Hero-Image.css">
+    <link rel="stylesheet" href="~/Content/assets/css/Full-Screen-Hero-Image.css">
+    <link rel="stylesheet" href="~/Content/assets/css/iframe.css">
+    <link rel="stylesheet" href="~/Content/assets/css/Navigation-Clean.css">
+    <link rel="stylesheet" href="~/Content/assets/css/PHP-Contact-Form-dark.css">
+    <link rel="stylesheet" href="~/Content/assets/css/PHP-Contact-Form-dark.css">
+    <link rel="stylesheet" href="~/Content/assets/css/styles.css">
+    <link rel="stylesheet" href="~/Content/assets/css/TD-BS4-Simple-Contact-Form.css">
+    <link rel="stylesheet" href="~/Content/assets/css/TD-BS4-Simple-Contact-Form.css">
+    <link rel="stylesheet" href="~/Content/assets/css/UnderSpeed---Floating-Label.css">
+    <link rel="stylesheet" href="~/Content/assets/css/UnderSpeed---Floating-Label.css">
+
+
+
+
+</head>
+
+<div class="container">
+    <div class="row">
+
+        <div class="form_bg">
+            @using (Html.BeginForm())
+            {
+
+                <h2 class="text-center">Login Page</h2>
+                <br />
+                <div class="form-group">
+                    @Html.TextBoxFor(x => x.ad_adminname, new { @class = "form-control", placeholder = "User name" })
+                    <span style="color:red"> @Html.ValidationMessageFor(x => x.ad_adminname)</span>
+                </div>
+                    <div class="form-group">
+                        @Html.PasswordFor(x => x.ad_password, new { @class = "form-control", placeholder = "User password" })
+                        <span style="color:red">   @Html.ValidationMessageFor(x => x.ad_password)</span>
+
+                    </div>
+                    <br />
+                    <div class="align-center">
+                        <input type="submit" name="name" value="login" id="login" class="btn btn-success" />
+                    </div><br />
+                    <div class="form-group">
+                        <p style="color:red">@ViewBag.error</p>
+                    </div>
+            }
+        </div>
+
+
+
+    </div>
+</div>
+<script src="~/Scripts/jquery.validate-vsdoc.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}

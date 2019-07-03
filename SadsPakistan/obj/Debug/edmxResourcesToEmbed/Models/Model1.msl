@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="sadspakModelStoreContainer" CdmEntityContainer="sadspakEntities">
+    <EntitySetMapping Name="AddressLocations">
+      <EntityTypeMapping TypeName="sadspakModel.AddressLocation">
+        <MappingFragment StoreEntitySet="AddressLocation">
+          <ScalarProperty Name="A_ID" ColumnName="A_ID" />
+          <ScalarProperty Name="location" ColumnName="location" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contacts">
+      <EntityTypeMapping TypeName="sadspakModel.Contact">
+        <MappingFragment StoreEntitySet="Contact">
+          <ScalarProperty Name="C_ID" ColumnName="C_ID" />
+          <ScalarProperty Name="contactName" ColumnName="contactName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="phoneNo" ColumnName="phoneNo" />
+          <ScalarProperty Name="CT_ID" ColumnName="CT_ID" />
+          <ScalarProperty Name="A_ID" ColumnName="A_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contacttypes">
+      <EntityTypeMapping TypeName="sadspakModel.Contacttype">
+        <MappingFragment StoreEntitySet="Contacttype">
+          <ScalarProperty Name="CT_ID" ColumnName="CT_ID" />
+          <ScalarProperty Name="typeofcontact" ColumnName="typeofcontact" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Donatetypes">
+      <EntityTypeMapping TypeName="sadspakModel.Donatetype">
+        <MappingFragment StoreEntitySet="Donatetype">
+          <ScalarProperty Name="DT_ID" ColumnName="DT_ID" />
+          <ScalarProperty Name="donationtype" ColumnName="donationtype" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Donations">
+      <EntityTypeMapping TypeName="sadspakModel.Donation">
+        <MappingFragment StoreEntitySet="Donation">
+          <ScalarProperty Name="D_ID" ColumnName="D_ID" />
+          <ScalarProperty Name="DT_ID" ColumnName="DT_ID" />
+          <ScalarProperty Name="C_ID" ColumnName="C_ID" />
+          <ScalarProperty Name="Q_ID" ColumnName="Q_ID" />
+          <ScalarProperty Name="DS_ID" ColumnName="DS_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DonationSchemes">
+      <EntityTypeMapping TypeName="sadspakModel.DonationScheme">
+        <MappingFragment StoreEntitySet="DonationScheme">
+          <ScalarProperty Name="DS_ID" ColumnName="DS_ID" />
+          <ScalarProperty Name="donationschemetype" ColumnName="donationschemetype" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="imgs">
+      <EntityTypeMapping TypeName="sadspakModel.img">
+        <MappingFragment StoreEntitySet="img">
+          <ScalarProperty Name="img_id" ColumnName="img_id" />
+          <ScalarProperty Name="url" ColumnName="url" />
+          <ScalarProperty Name="img_status" ColumnName="img_status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Messages">
+      <EntityTypeMapping TypeName="sadspakModel.Message">
+        <MappingFragment StoreEntitySet="Message">
+          <ScalarProperty Name="M_ID" ColumnName="M_ID" />
+          <ScalarProperty Name="subject" ColumnName="subject" />
+          <ScalarProperty Name="C_ID" ColumnName="C_ID" />
+          <ScalarProperty Name="MT_ID" ColumnName="MT_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MessageTypes">
+      <EntityTypeMapping TypeName="sadspakModel.MessageType">
+        <MappingFragment StoreEntitySet="MessageType">
+          <ScalarProperty Name="MT_ID" ColumnName="MT_ID" />
+          <ScalarProperty Name="typeofMsg" ColumnName="typeofMsg" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="quantityRanges">
+      <EntityTypeMapping TypeName="sadspakModel.quantityRange">
+        <MappingFragment StoreEntitySet="quantityRange">
+          <ScalarProperty Name="Q_ID" ColumnName="Q_ID" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="sadspakModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

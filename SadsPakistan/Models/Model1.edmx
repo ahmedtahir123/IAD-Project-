@@ -1,0 +1,621 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="sadspakModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AddressLocation">
+          <Key>
+            <PropertyRef Name="A_ID" />
+          </Key>
+          <Property Name="A_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="location" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="C_ID" />
+          </Key>
+          <Property Name="C_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="contactName" Type="nvarchar" MaxLength="20" />
+          <Property Name="Email" Type="nvarchar" MaxLength="20" />
+          <Property Name="phoneNo" Type="int" />
+          <Property Name="CT_ID" Type="int" />
+          <Property Name="A_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="Contacttype">
+          <Key>
+            <PropertyRef Name="CT_ID" />
+          </Key>
+          <Property Name="CT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="typeofcontact" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Donatetype">
+          <Key>
+            <PropertyRef Name="DT_ID" />
+          </Key>
+          <Property Name="DT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="donationtype" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Donation">
+          <Key>
+            <PropertyRef Name="D_ID" />
+          </Key>
+          <Property Name="D_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DT_ID" Type="int" />
+          <Property Name="C_ID" Type="int" />
+          <Property Name="Q_ID" Type="int" />
+          <Property Name="DS_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="DonationScheme">
+          <Key>
+            <PropertyRef Name="DS_ID" />
+          </Key>
+          <Property Name="DS_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="donationschemetype" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="img">
+          <Key>
+            <PropertyRef Name="img_id" />
+          </Key>
+          <Property Name="img_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="url" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="img_status" Type="int" />
+        </EntityType>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="M_ID" />
+          </Key>
+          <Property Name="M_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="subject" Type="nvarchar" MaxLength="20" />
+          <Property Name="C_ID" Type="int" />
+          <Property Name="MT_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="MessageType">
+          <Key>
+            <PropertyRef Name="MT_ID" />
+          </Key>
+          <Property Name="MT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="typeofMsg" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="quantityRange">
+          <Key>
+            <PropertyRef Name="Q_ID" />
+          </Key>
+          <Property Name="Q_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="quantity" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK__Contact__A_ID__15502E78">
+          <End Role="AddressLocation" Type="Self.AddressLocation" Multiplicity="0..1" />
+          <End Role="Contact" Type="Self.Contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AddressLocation">
+              <PropertyRef Name="A_ID" />
+            </Principal>
+            <Dependent Role="Contact">
+              <PropertyRef Name="A_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Contact__CT_ID__145C0A3F">
+          <End Role="Contacttype" Type="Self.Contacttype" Multiplicity="0..1" />
+          <End Role="Contact" Type="Self.Contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contacttype">
+              <PropertyRef Name="CT_ID" />
+            </Principal>
+            <Dependent Role="Contact">
+              <PropertyRef Name="CT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Donation__C_ID__24927208">
+          <End Role="Contact" Type="Self.Contact" Multiplicity="0..1" />
+          <End Role="Donation" Type="Self.Donation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contact">
+              <PropertyRef Name="C_ID" />
+            </Principal>
+            <Dependent Role="Donation">
+              <PropertyRef Name="C_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Donation__DS_ID__267ABA7A">
+          <End Role="DonationScheme" Type="Self.DonationScheme" Multiplicity="0..1" />
+          <End Role="Donation" Type="Self.Donation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DonationScheme">
+              <PropertyRef Name="DS_ID" />
+            </Principal>
+            <Dependent Role="Donation">
+              <PropertyRef Name="DS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Donation__DT_ID__239E4DCF">
+          <End Role="Donatetype" Type="Self.Donatetype" Multiplicity="0..1" />
+          <End Role="Donation" Type="Self.Donation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Donatetype">
+              <PropertyRef Name="DT_ID" />
+            </Principal>
+            <Dependent Role="Donation">
+              <PropertyRef Name="DT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Donation__Q_ID__25869641">
+          <End Role="quantityRange" Type="Self.quantityRange" Multiplicity="0..1" />
+          <End Role="Donation" Type="Self.Donation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="quantityRange">
+              <PropertyRef Name="Q_ID" />
+            </Principal>
+            <Dependent Role="Donation">
+              <PropertyRef Name="Q_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Message__C_ID__1DE57479">
+          <End Role="Contact" Type="Self.Contact" Multiplicity="0..1" />
+          <End Role="Message" Type="Self.Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contact">
+              <PropertyRef Name="C_ID" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="C_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Message__MT_ID__1ED998B2">
+          <End Role="MessageType" Type="Self.MessageType" Multiplicity="0..1" />
+          <End Role="Message" Type="Self.Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MessageType">
+              <PropertyRef Name="MT_ID" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="MT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="sadspakModelStoreContainer">
+          <EntitySet Name="AddressLocation" EntityType="Self.AddressLocation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contacttype" EntityType="Self.Contacttype" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Donatetype" EntityType="Self.Donatetype" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Donation" EntityType="Self.Donation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DonationScheme" EntityType="Self.DonationScheme" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="img" EntityType="Self.img" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Message" EntityType="Self.Message" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MessageType" EntityType="Self.MessageType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="quantityRange" EntityType="Self.quantityRange" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Contact__A_ID__15502E78" Association="Self.FK__Contact__A_ID__15502E78">
+            <End Role="AddressLocation" EntitySet="AddressLocation" />
+            <End Role="Contact" EntitySet="Contact" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Contact__CT_ID__145C0A3F" Association="Self.FK__Contact__CT_ID__145C0A3F">
+            <End Role="Contacttype" EntitySet="Contacttype" />
+            <End Role="Contact" EntitySet="Contact" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Donation__C_ID__24927208" Association="Self.FK__Donation__C_ID__24927208">
+            <End Role="Contact" EntitySet="Contact" />
+            <End Role="Donation" EntitySet="Donation" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Donation__DS_ID__267ABA7A" Association="Self.FK__Donation__DS_ID__267ABA7A">
+            <End Role="DonationScheme" EntitySet="DonationScheme" />
+            <End Role="Donation" EntitySet="Donation" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Donation__DT_ID__239E4DCF" Association="Self.FK__Donation__DT_ID__239E4DCF">
+            <End Role="Donatetype" EntitySet="Donatetype" />
+            <End Role="Donation" EntitySet="Donation" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Donation__Q_ID__25869641" Association="Self.FK__Donation__Q_ID__25869641">
+            <End Role="quantityRange" EntitySet="quantityRange" />
+            <End Role="Donation" EntitySet="Donation" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Message__C_ID__1DE57479" Association="Self.FK__Message__C_ID__1DE57479">
+            <End Role="Contact" EntitySet="Contact" />
+            <End Role="Message" EntitySet="Message" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Message__MT_ID__1ED998B2" Association="Self.FK__Message__MT_ID__1ED998B2">
+            <End Role="MessageType" EntitySet="MessageType" />
+            <End Role="Message" EntitySet="Message" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="sadspakModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AddressLocation">
+          <Key>
+            <PropertyRef Name="A_ID" />
+          </Key>
+          <Property Name="A_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Contacts" Relationship="Self.FK__Contact__A_ID__15502E78" FromRole="AddressLocation" ToRole="Contact" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="C_ID" />
+          </Key>
+          <Property Name="C_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="contactName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="phoneNo" Type="Int32" />
+          <Property Name="CT_ID" Type="Int32" />
+          <Property Name="A_ID" Type="Int32" />
+          <NavigationProperty Name="AddressLocation" Relationship="Self.FK__Contact__A_ID__15502E78" FromRole="Contact" ToRole="AddressLocation" />
+          <NavigationProperty Name="Contacttype" Relationship="Self.FK__Contact__CT_ID__145C0A3F" FromRole="Contact" ToRole="Contacttype" />
+          <NavigationProperty Name="Donations" Relationship="Self.FK__Donation__C_ID__24927208" FromRole="Contact" ToRole="Donation" />
+          <NavigationProperty Name="Messages" Relationship="Self.FK__Message__C_ID__1DE57479" FromRole="Contact" ToRole="Message" />
+        </EntityType>
+        <EntityType Name="Contacttype">
+          <Key>
+            <PropertyRef Name="CT_ID" />
+          </Key>
+          <Property Name="CT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="typeofcontact" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Contacts" Relationship="Self.FK__Contact__CT_ID__145C0A3F" FromRole="Contacttype" ToRole="Contact" />
+        </EntityType>
+        <EntityType Name="Donatetype">
+          <Key>
+            <PropertyRef Name="DT_ID" />
+          </Key>
+          <Property Name="DT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="donationtype" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Donations" Relationship="Self.FK__Donation__DT_ID__239E4DCF" FromRole="Donatetype" ToRole="Donation" />
+        </EntityType>
+        <EntityType Name="Donation">
+          <Key>
+            <PropertyRef Name="D_ID" />
+          </Key>
+          <Property Name="D_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DT_ID" Type="Int32" />
+          <Property Name="C_ID" Type="Int32" />
+          <Property Name="Q_ID" Type="Int32" />
+          <Property Name="DS_ID" Type="Int32" />
+          <NavigationProperty Name="Contact" Relationship="Self.FK__Donation__C_ID__24927208" FromRole="Donation" ToRole="Contact" />
+          <NavigationProperty Name="Donatetype" Relationship="Self.FK__Donation__DT_ID__239E4DCF" FromRole="Donation" ToRole="Donatetype" />
+          <NavigationProperty Name="DonationScheme" Relationship="Self.FK__Donation__DS_ID__267ABA7A" FromRole="Donation" ToRole="DonationScheme" />
+          <NavigationProperty Name="quantityRange" Relationship="Self.FK__Donation__Q_ID__25869641" FromRole="Donation" ToRole="quantityRange" />
+        </EntityType>
+        <EntityType Name="DonationScheme">
+          <Key>
+            <PropertyRef Name="DS_ID" />
+          </Key>
+          <Property Name="DS_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="donationschemetype" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Donations" Relationship="Self.FK__Donation__DS_ID__267ABA7A" FromRole="DonationScheme" ToRole="Donation" />
+        </EntityType>
+        <EntityType Name="img">
+          <Key>
+            <PropertyRef Name="img_id" />
+          </Key>
+          <Property Name="img_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="url" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="img_status" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="M_ID" />
+          </Key>
+          <Property Name="M_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="subject" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="C_ID" Type="Int32" />
+          <Property Name="MT_ID" Type="Int32" />
+          <NavigationProperty Name="Contact" Relationship="Self.FK__Message__C_ID__1DE57479" FromRole="Message" ToRole="Contact" />
+          <NavigationProperty Name="MessageType" Relationship="Self.FK__Message__MT_ID__1ED998B2" FromRole="Message" ToRole="MessageType" />
+        </EntityType>
+        <EntityType Name="MessageType">
+          <Key>
+            <PropertyRef Name="MT_ID" />
+          </Key>
+          <Property Name="MT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="typeofMsg" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Messages" Relationship="Self.FK__Message__MT_ID__1ED998B2" FromRole="MessageType" ToRole="Message" />
+        </EntityType>
+        <EntityType Name="quantityRange">
+          <Key>
+            <PropertyRef Name="Q_ID" />
+          </Key>
+          <Property Name="Q_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="quantity" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Donations" Relationship="Self.FK__Donation__Q_ID__25869641" FromRole="quantityRange" ToRole="Donation" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK__Contact__A_ID__15502E78">
+          <End Role="AddressLocation" Type="Self.AddressLocation" Multiplicity="0..1" />
+          <End Role="Contact" Type="Self.Contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AddressLocation">
+              <PropertyRef Name="A_ID" />
+            </Principal>
+            <Dependent Role="Contact">
+              <PropertyRef Name="A_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Contact__CT_ID__145C0A3F">
+          <End Role="Contacttype" Type="Self.Contacttype" Multiplicity="0..1" />
+          <End Role="Contact" Type="Self.Contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contacttype">
+              <PropertyRef Name="CT_ID" />
+            </Principal>
+            <Dependent Role="Contact">
+              <PropertyRef Name="CT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Donation__C_ID__24927208">
+          <End Role="Contact" Type="Self.Contact" Multiplicity="0..1" />
+          <End Role="Donation" Type="Self.Donation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contact">
+              <PropertyRef Name="C_ID" />
+            </Principal>
+            <Dependent Role="Donation">
+              <PropertyRef Name="C_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Message__C_ID__1DE57479">
+          <End Role="Contact" Type="Self.Contact" Multiplicity="0..1" />
+          <End Role="Message" Type="Self.Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contact">
+              <PropertyRef Name="C_ID" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="C_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Donation__DT_ID__239E4DCF">
+          <End Role="Donatetype" Type="Self.Donatetype" Multiplicity="0..1" />
+          <End Role="Donation" Type="Self.Donation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Donatetype">
+              <PropertyRef Name="DT_ID" />
+            </Principal>
+            <Dependent Role="Donation">
+              <PropertyRef Name="DT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Donation__DS_ID__267ABA7A">
+          <End Role="DonationScheme" Type="Self.DonationScheme" Multiplicity="0..1" />
+          <End Role="Donation" Type="Self.Donation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DonationScheme">
+              <PropertyRef Name="DS_ID" />
+            </Principal>
+            <Dependent Role="Donation">
+              <PropertyRef Name="DS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Donation__Q_ID__25869641">
+          <End Role="quantityRange" Type="Self.quantityRange" Multiplicity="0..1" />
+          <End Role="Donation" Type="Self.Donation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="quantityRange">
+              <PropertyRef Name="Q_ID" />
+            </Principal>
+            <Dependent Role="Donation">
+              <PropertyRef Name="Q_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Message__MT_ID__1ED998B2">
+          <End Role="MessageType" Type="Self.MessageType" Multiplicity="0..1" />
+          <End Role="Message" Type="Self.Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MessageType">
+              <PropertyRef Name="MT_ID" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="MT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="sadspakEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AddressLocations" EntityType="Self.AddressLocation" />
+          <EntitySet Name="Contacts" EntityType="Self.Contact" />
+          <EntitySet Name="Contacttypes" EntityType="Self.Contacttype" />
+          <EntitySet Name="Donatetypes" EntityType="Self.Donatetype" />
+          <EntitySet Name="Donations" EntityType="Self.Donation" />
+          <EntitySet Name="DonationSchemes" EntityType="Self.DonationScheme" />
+          <EntitySet Name="imgs" EntityType="Self.img" />
+          <EntitySet Name="Messages" EntityType="Self.Message" />
+          <EntitySet Name="MessageTypes" EntityType="Self.MessageType" />
+          <EntitySet Name="quantityRanges" EntityType="Self.quantityRange" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <AssociationSet Name="FK__Contact__A_ID__15502E78" Association="Self.FK__Contact__A_ID__15502E78">
+            <End Role="AddressLocation" EntitySet="AddressLocations" />
+            <End Role="Contact" EntitySet="Contacts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Contact__CT_ID__145C0A3F" Association="Self.FK__Contact__CT_ID__145C0A3F">
+            <End Role="Contacttype" EntitySet="Contacttypes" />
+            <End Role="Contact" EntitySet="Contacts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Donation__C_ID__24927208" Association="Self.FK__Donation__C_ID__24927208">
+            <End Role="Contact" EntitySet="Contacts" />
+            <End Role="Donation" EntitySet="Donations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Message__C_ID__1DE57479" Association="Self.FK__Message__C_ID__1DE57479">
+            <End Role="Contact" EntitySet="Contacts" />
+            <End Role="Message" EntitySet="Messages" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Donation__DT_ID__239E4DCF" Association="Self.FK__Donation__DT_ID__239E4DCF">
+            <End Role="Donatetype" EntitySet="Donatetypes" />
+            <End Role="Donation" EntitySet="Donations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Donation__DS_ID__267ABA7A" Association="Self.FK__Donation__DS_ID__267ABA7A">
+            <End Role="DonationScheme" EntitySet="DonationSchemes" />
+            <End Role="Donation" EntitySet="Donations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Donation__Q_ID__25869641" Association="Self.FK__Donation__Q_ID__25869641">
+            <End Role="quantityRange" EntitySet="quantityRanges" />
+            <End Role="Donation" EntitySet="Donations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Message__MT_ID__1ED998B2" Association="Self.FK__Message__MT_ID__1ED998B2">
+            <End Role="MessageType" EntitySet="MessageTypes" />
+            <End Role="Message" EntitySet="Messages" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="sadspakModelStoreContainer" CdmEntityContainer="sadspakEntities">
+          <EntitySetMapping Name="AddressLocations">
+            <EntityTypeMapping TypeName="sadspakModel.AddressLocation">
+              <MappingFragment StoreEntitySet="AddressLocation">
+                <ScalarProperty Name="A_ID" ColumnName="A_ID" />
+                <ScalarProperty Name="location" ColumnName="location" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contacts">
+            <EntityTypeMapping TypeName="sadspakModel.Contact">
+              <MappingFragment StoreEntitySet="Contact">
+                <ScalarProperty Name="C_ID" ColumnName="C_ID" />
+                <ScalarProperty Name="contactName" ColumnName="contactName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="phoneNo" ColumnName="phoneNo" />
+                <ScalarProperty Name="CT_ID" ColumnName="CT_ID" />
+                <ScalarProperty Name="A_ID" ColumnName="A_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contacttypes">
+            <EntityTypeMapping TypeName="sadspakModel.Contacttype">
+              <MappingFragment StoreEntitySet="Contacttype">
+                <ScalarProperty Name="CT_ID" ColumnName="CT_ID" />
+                <ScalarProperty Name="typeofcontact" ColumnName="typeofcontact" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Donatetypes">
+            <EntityTypeMapping TypeName="sadspakModel.Donatetype">
+              <MappingFragment StoreEntitySet="Donatetype">
+                <ScalarProperty Name="DT_ID" ColumnName="DT_ID" />
+                <ScalarProperty Name="donationtype" ColumnName="donationtype" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Donations">
+            <EntityTypeMapping TypeName="sadspakModel.Donation">
+              <MappingFragment StoreEntitySet="Donation">
+                <ScalarProperty Name="D_ID" ColumnName="D_ID" />
+                <ScalarProperty Name="DT_ID" ColumnName="DT_ID" />
+                <ScalarProperty Name="C_ID" ColumnName="C_ID" />
+                <ScalarProperty Name="Q_ID" ColumnName="Q_ID" />
+                <ScalarProperty Name="DS_ID" ColumnName="DS_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DonationSchemes">
+            <EntityTypeMapping TypeName="sadspakModel.DonationScheme">
+              <MappingFragment StoreEntitySet="DonationScheme">
+                <ScalarProperty Name="DS_ID" ColumnName="DS_ID" />
+                <ScalarProperty Name="donationschemetype" ColumnName="donationschemetype" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="imgs">
+            <EntityTypeMapping TypeName="sadspakModel.img">
+              <MappingFragment StoreEntitySet="img">
+                <ScalarProperty Name="img_id" ColumnName="img_id" />
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="img_status" ColumnName="img_status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Messages">
+            <EntityTypeMapping TypeName="sadspakModel.Message">
+              <MappingFragment StoreEntitySet="Message">
+                <ScalarProperty Name="M_ID" ColumnName="M_ID" />
+                <ScalarProperty Name="subject" ColumnName="subject" />
+                <ScalarProperty Name="C_ID" ColumnName="C_ID" />
+                <ScalarProperty Name="MT_ID" ColumnName="MT_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MessageTypes">
+            <EntityTypeMapping TypeName="sadspakModel.MessageType">
+              <MappingFragment StoreEntitySet="MessageType">
+                <ScalarProperty Name="MT_ID" ColumnName="MT_ID" />
+                <ScalarProperty Name="typeofMsg" ColumnName="typeofMsg" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="quantityRanges">
+            <EntityTypeMapping TypeName="sadspakModel.quantityRange">
+              <MappingFragment StoreEntitySet="quantityRange">
+                <ScalarProperty Name="Q_ID" ColumnName="Q_ID" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="sadspakModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

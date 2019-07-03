@@ -1,0 +1,167 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/Content/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="~/Content/assets/css/Fixed-navbar-starting-with-transparency.css">
+    <link rel="stylesheet" href="~/Content/assets/css/Fixed-navbar-starting-with-transparency.css">
+    <link rel="stylesheet" href="~/Content/assets/css/16-scrollbar-styles.css">
+    <link rel="stylesheet" href="~/Content/assets/css/16-scrollbar-styles.css">
+    <link rel="stylesheet" href="~/Content/assets/css/Dark-Footer.css">
+    <link rel="stylesheet" href="~/Content/assets/css/Dark-Footer.css">
+    <link rel="stylesheet" href="~/Content/assets/css/Dark-Footer.css">
+    <link rel="stylesheet" href="~/Content/assets/css/Dark-Footer.css">
+    <link rel="stylesheet" href="~/Content/assets/css/Dark-Footer.css">
+    <link rel="stylesheet" href="~/Content/assets/css/Dark-Footer.css">
+    <link rel="stylesheet" href="~/Content/assets/css/ebs-bootstrap-datepicker.css">
+    <link rel="stylesheet" href="~/Content/assets/css/ebs-bootstrap-datepicker.css">
+    <link rel="stylesheet" href="~/Content/assets/css/ebs-bootstrap-datepicker.css">
+    <link rel="stylesheet" href="~/Content/assets/css/ebs-bootstrap-datepicker.css">
+    <link rel="stylesheet" href="~/Content/assets/css/ebs-bootstrap-datepicker.css">
+    <link rel="stylesheet" href="~/Content/assets/css/ebs-contact-form.css">
+    <link rel="stylesheet" href="~/Content/assets/css/ebs-contact-form.css">
+    <link rel="stylesheet" href="~/Content/assets/css/Pretty-Footer.css">
+    <link rel="stylesheet" href="~/Content/assets/css/Full-Screen-Hero-Image.css">
+    <link rel="stylesheet" href="~/Content/assets/css/Full-Screen-Hero-Image.css">
+    <link rel="stylesheet" href="~/Content/assets/css/iframe.css">
+    <link rel="stylesheet" href="~/Content/assets/css/Navigation-Clean.css">
+    <link rel="stylesheet" href="~/Content/assets/css/PHP-Contact-Form-dark.css">
+    <link rel="stylesheet" href="~/Content/assets/css/PHP-Contact-Form-dark.css">
+    <link rel="stylesheet" href="~/Content/assets/css/styles.css">
+    <link rel="stylesheet" href="~/Content/assets/css/TD-BS4-Simple-Contact-Form.css">
+    <link rel="stylesheet" href="~/Content/assets/css/TD-BS4-Simple-Contact-Form.css">
+    <link rel="stylesheet" href="~/Content/assets/css/UnderSpeed---Floating-Label.css">
+    <link rel="stylesheet" href="~/Content/assets/css/UnderSpeed---Floating-Label.css">
+
+
+    <script src="~/Scripts/jquery.validate-vsdoc.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+
+
+    <title>Sadsindia</title>
+    @*@Styles.Render("~/Content/css")*@
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+
+
+    <div >
+        <nav class="navbar navbar-light  navbar-expand-md navigation-clean" style="background-color:#000000; height:100px; position:fixed ; width:100%; z-index :5" >
+            <div class="container" >
+                <a class="navbar-brand" ><img src="~/Content/NewFolder1/sads_logo_vector.svg" alt="Alternate Text" /></a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navcol-1" @*style="color:rgb(6,6,6);"*@>
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item" role="presentation" @*style="color:rgb(0,0,0);"*@>
+                            @Html.ActionLink("Home", "Index", "Home", new { @class = "nav-link", style = "font-family:Nunito;color:white;font-weight:900;letter-spacing:2px;" });
+                            @*<a class="navber nav-link " href="~/Views/Home/Index.cshtml" aria-expanded="false" style="font-family:Nunito;color:white;font-weight:900;letter-spacing:2px;">Home&nbsp;</a>*@
+
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false" style="/*color:#ffffff;*/font-family:Nunito;color:white;font-weight:900;letter-spacing:2px;">GET INVOLVED&nbsp;</a>
+                            <div class="dropdown-menu"
+                                 role="menu">
+
+                                @Html.ActionLink("Volunteer", "volunteer", "Home", new { @class = "dropdown-item", role = "presentation" })
+                                @Html.ActionLink("NGO Partners", "NGO", "Home", new { @class = "dropdown-item", role = "presentation" })
+                                @Html.ActionLink("Brands Partners", "Brand", "Home", new { @class = "dropdown-item", role = "presentation" })
+
+
+                            </div>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle nav-link dropdown-toggle a:hover" data-toggle="dropdown" aria-expanded="false" href="#" style="/*color:#fff;*/font-family:Nunito;color:white;font-weight:900;letter-spacing:2px;">ABOUT US &nbsp;</a>
+                            <div class="dropdown-menu"
+                                 role="menu">
+                                @Html.ActionLink("Our Story", "story", "Home", new { @class = "dropdown-item", role = "presentation" })
+                                @Html.ActionLink("How We Work", "work", "Home", new { @class = "dropdown-item", role = "presentation" })
+                                @Html.ActionLink("What we Offer", "offer", "Home", new { @class = "dropdown-item", role = "presentation" })
+
+                            </div>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#" style="/*color:#fff;*/font-family:Nunito;font-weight:900;color:white;letter-spacing:2px;">CONTACT US&nbsp;</a>
+                            <div class="dropdown-menu"
+                                 role="menu">
+
+                                @Html.ActionLink("Personal Query", "personal", "Home", new { @class = "dropdown-item", role = "presentation" })
+                                @Html.ActionLink("Corporate Query", "coorpoarte", "Home", new { @class = "dropdown-item", role = "presentation" })
+                                @Html.ActionLink("Smart Donation Drives", "smart", "Home", new { @class = "dropdown-item", role = "presentation" })
+
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+
+
+
+   <div >
+        @RenderBody()
+       <footer>
+           <div class="row">
+               <div class="col-sm-6 col-md-4 footer-navigation">
+                   <h3><a href="#">SADS<span>logo </span></a></h3>
+                   <p class="links">
+                       <a href="#">Home</a><strong> · </strong>
+                       @*<a href="#">Blog</a><strong> · </strong>*@
+                       @*<a href="#">Pricing</a><strong> · </strong>
+                       <a href="#">About</a><strong> · </strong>
+                       <a href="#">Faq</a><strong> · </strong>
+                       <a href="#">Contact</a>*@
+                   </p>
+                   <p class="company-name">Company Name © 2015 </p>
+               </div>
+               <div class="col-sm-6 col-md-4 footer-contacts">
+                   <div>
+                       <span class="fa fa-map-marker footer-contacts-icon"> </span>
+                       <p><span class="new-line-span">21 Revolution Street</span> Paris, France</p>
+                   </div>
+                   <div>
+                       <i class="fa fa-phone footer-contacts-icon"></i>
+                       <p class="footer-center-info email text-left"> +1 555 123456</p>
+                   </div>
+                   <div>
+                       <i class="fa fa-envelope footer-contacts-icon"></i>
+                       <p> <a href="#" target="_blank">support@company.com</a></p>
+                   </div>
+               </div>
+               <div class="clearfix"></div>
+               <div class="col-md-4 footer-about">
+                   <h4>About the company</h4>
+                   <p> Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet. </p>
+                   <div class="social-links social-icons"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a><a href="#"><i class="fa fa-github"></i></a></div>
+               </div>
+           </div>
+       </footer>
+
+      
+
+       
+    </div>
+    
+    <script src="~/Content/assets/js/jquery.min.js"></script>
+    <script src="~/Content/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/Content/assets/js/UnderSpeed---Floating-Label.js"></script>
+    <script src="~/Content/assets/js/ebs-bootstrap-datepicker.js"></script>
+    <script src="~/Content/assets/js/Fixed-navbar-starting-with-transparency.js"></script>
+    <script src="~/Content/assets/js/PHP-Contact-Form-dark.js"></script>
+    <script src="~/Content/assets/js/PHP-Contact-Form-dark.js"></script>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
